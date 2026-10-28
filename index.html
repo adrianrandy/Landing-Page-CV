@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adrian Randy Pratama — IT Developer & System Implementation</title>
-  <meta name="description" content="Adrian Randy Pratama — IT Developer & System Implementation with 3+ years of experience in the port industry." />
+  <title data-i18n="meta.title">Adrian Randy Pratama — IT Developer & System Implementation</title>
+  <meta name="description" data-i18n-attr="content|meta.description" content="Adrian Randy Pratama — IT Developer & System Implementation with 3+ years of experience in the port industry." />
   <meta property="og:title" content="Adrian Randy Pratama — CV" />
   <meta property="og:description" content="IT Developer & System Implementation · Business Analyst" />
   <meta property="og:image" content="assets/profile.jpg" />
@@ -13,13 +13,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Pasang tema sebelum halaman tampil agar tidak berkedip -->
+  <!-- Pasang tema & bahasa sebelum halaman tampil agar tidak berkedip -->
   <script>
     (function () {
-      var saved = null;
-      try { saved = localStorage.getItem("theme"); } catch (e) {}
-      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = null, lang = null;
+      try { theme = localStorage.getItem("theme"); lang = localStorage.getItem("lang"); } catch (e) {}
+      var dark = theme ? theme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
       document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      document.documentElement.setAttribute("lang", lang === "id" ? "id" : "en");
     })();
   </script>
 </head>
@@ -31,13 +32,16 @@
       <a href="#home" class="logo">Curriculum Vitae<span>.</span></a>
       <div class="nav-right">
         <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact" class="btn btn-sm">Contact</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#experience" data-i18n="nav.experience">Experience</a>
+          <a href="#education" data-i18n="nav.education">Education</a>
+          <a href="#projects" data-i18n="nav.projects">Projects</a>
+          <a href="#skills" data-i18n="nav.skills">Skills</a>
+          <a href="#contact" class="btn btn-sm" data-i18n="nav.contact">Contact</a>
         </nav>
+        <button class="lang-toggle" aria-label="Switch language" title="English / Bahasa Indonesia">
+          <span data-lang="en">EN</span><span data-lang="id">ID</span>
+        </button>
         <button class="theme-toggle" aria-label="Switch to dark mode" title="Switch theme">
           <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
@@ -55,21 +59,22 @@
   </header>
 
   <!-- Layout 2 kolom: profil di kanan (tetap saat scroll), isi CV di kiri -->
+  <!-- Teks bertanda data-i18n diterjemahkan otomatis; versi Indonesia ada di js/i18n.js -->
   <main class="container layout">
     <!-- ================= PROFIL (SIDEBAR KANAN) ================= -->
     <aside id="home" class="profile">
-      <img src="assets/profile.jpg" alt="Photo of Adrian Randy Pratama" width="320" height="320" />
-      <p class="eyebrow">Hello, I'm</p>
+      <img src="assets/profile.jpg" alt="Photo of Adrian Randy Pratama" data-i18n-attr="alt|profile.alt" width="320" height="320" />
+      <p class="eyebrow" data-i18n="profile.eyebrow">Hello, I'm</p>
       <h1>Adrian Randy Pratama</h1>
       <h2 class="role">IT Developer &amp; System Implementation</h2>
-      <p class="lead">
+      <p class="lead" data-i18n="profile.lead">
         Results-driven IT professional specializing in data analysis to generate
         actionable insights, with 3+ years of experience in the port industry.
       </p>
       <div class="hero-actions">
         <!-- Jika file CV diganti, sesuaikan nama file di href -->
-        <a href="assets/Adrian_Randy_CV_rev.pdf" class="btn" download="Adrian_Randy_Pratama_CV.pdf">Download CV</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="assets/Adrian_Randy_CV_rev.pdf" class="btn" download="Adrian_Randy_Pratama_CV.pdf" data-i18n="profile.download">Download CV</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="profile.contact">Get in Touch</a>
       </div>
     </aside>
 
@@ -79,9 +84,9 @@
     <!-- ================= ABOUT ================= -->
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
         <div class="about-grid">
-          <p>
+          <p data-i18n="about.text">
             Adrian is a results-driven IT professional with a Bachelor's degree in
             Information Systems, specializing in data analysis to generate actionable
             insights. With over three years of experience as an IT Developer and System
@@ -92,33 +97,33 @@
             proficiency.
           </p>
           <ul class="stats">
-            <li><strong>3+</strong><span>Years of Experience</span></li>
-            <li><strong>3</strong><span>Companies</span></li>
-            <li><strong>BINUS</strong><span>Bachelor of Information Systems</span></li>
+            <li><strong>3+</strong><span data-i18n="about.stat1">Years of Experience</span></li>
+            <li><strong>3</strong><span data-i18n="about.stat2">Companies</span></li>
+            <li><strong>BINUS</strong><span data-i18n="about.stat3">Bachelor of Information Systems</span></li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- ================= EXPERIENCE ================= -->
-    <!-- Untuk menambah pengalaman: salin satu blok <article class="timeline-item"> -->
+    <!-- Untuk menambah pengalaman: salin satu blok <article class="timeline-item"> lalu tambahkan terjemahannya di js/i18n.js -->
     <section id="experience" class="section">
       <div class="container">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title" data-i18n="exp.title">Experience</h2>
         <div class="timeline">
 
           <article class="timeline-item">
-            <span class="period">Feb 2025 — Present</span>
+            <span class="period" data-i18n="exp1.period">Feb 2025 — Present</span>
             <h3>IT Developer</h3>
             <p class="org">PT. Integrasi Logistik Cipta Solusi (Pelindo Solusi Digital) · Jakarta</p>
             <ul>
-              <li>Collaborate with full stack developers to ensure smooth data flow between the server and the client.</li>
-              <li>Create API integrations that allow the front-end to communicate with the server and databases.</li>
-              <li>Create the logic that powers applications: handling user requests, processing data, and sending back the correct response.</li>
-              <li>Design and interact with databases — schema design, queries, and optimization using Oracle and PostgreSQL.</li>
-              <li>Integrate applications with third-party APIs and services, including surrounding port systems.</li>
-              <li>Solve complex problems related to data, performance, or logic that support software features and functionality.</li>
-              <li>Write server-side logic that processes front-end requests and returns results in the proper format (JSON or XML).</li>
+              <li data-i18n="exp1.b1">Collaborate with full stack developers to ensure smooth data flow between the server and the client.</li>
+              <li data-i18n="exp1.b2">Create API integrations that allow the front-end to communicate with the server and databases.</li>
+              <li data-i18n="exp1.b3">Create the logic that powers applications: handling user requests, processing data, and sending back the correct response.</li>
+              <li data-i18n="exp1.b4">Design and interact with databases — schema design, queries, and optimization using Oracle and PostgreSQL.</li>
+              <li data-i18n="exp1.b5">Integrate applications with third-party APIs and services, including surrounding port systems.</li>
+              <li data-i18n="exp1.b6">Solve complex problems related to data, performance, or logic that support software features and functionality.</li>
+              <li data-i18n="exp1.b7">Write server-side logic that processes front-end requests and returns results in the proper format (JSON or XML).</li>
             </ul>
           </article>
 
@@ -127,14 +132,14 @@
             <h3>System Implementation</h3>
             <p class="org">PT. Integrasi Logistik Cipta Solusi (Pelindo Solusi Digital) · Jakarta</p>
             <ul>
-              <li>Implement all site procedures and ensure application configuration according to the task list.</li>
-              <li>End-user software training (individual and group).</li>
-              <li>Understand customer problems and provide proper support with resolution.</li>
-              <li>Provide training on Port Business Process, Ship Service Flow, and the Phinnisi Website &amp; Application for new members of the VASA and Phinnisi Project.</li>
-              <li>Provide socialization &amp; training to branches (actors involved in ship services) and shipping agents.</li>
-              <li>Analyze and standardize marine service systems and procedures across all branches of Pelabuhan Indonesia (Pelindo).</li>
-              <li>Identify room for improvement and solutions to gaps through change management and data maturity.</li>
-              <li>Manage daily documentation and add all client master data into the database.</li>
+              <li data-i18n="exp2.b1">Implement all site procedures and ensure application configuration according to the task list.</li>
+              <li data-i18n="exp2.b2">End-user software training (individual and group).</li>
+              <li data-i18n="exp2.b3">Understand customer problems and provide proper support with resolution.</li>
+              <li data-i18n="exp2.b4">Provide training on Port Business Process, Ship Service Flow, and the Phinnisi Website &amp; Application for new members of the VASA and Phinnisi Project.</li>
+              <li data-i18n="exp2.b5">Provide socialization &amp; training to branches (actors involved in ship services) and shipping agents.</li>
+              <li data-i18n="exp2.b6">Analyze and standardize marine service systems and procedures across all branches of Pelabuhan Indonesia (Pelindo).</li>
+              <li data-i18n="exp2.b7">Identify room for improvement and solutions to gaps through change management and data maturity.</li>
+              <li data-i18n="exp2.b8">Manage daily documentation and add all client master data into the database.</li>
             </ul>
           </article>
 
@@ -143,7 +148,7 @@
             <h3>IT Developer</h3>
             <p class="org">PT. Integrasi Logistik Cipta Solusi (Pelindo Solusi Digital) · Jakarta</p>
             <ul>
-              <li>Backend and API development, database design (Oracle, PostgreSQL), and third-party port system integrations.</li>
+              <li data-i18n="exp3.b1">Backend and API development, database design (Oracle, PostgreSQL), and third-party port system integrations.</li>
             </ul>
           </article>
 
@@ -152,23 +157,23 @@
             <h3>IT Developer</h3>
             <p class="org">PT. Sinar Mas Land · Jakarta</p>
             <ul>
-              <li>Develop web applications and websites using HTML, PHP, JavaScript, jQuery, and CSS.</li>
-              <li>Enable websites and apps to fetch, display, and update news articles dynamically from an external API or database.</li>
-              <li>Use JSON integration in the back-end for efficient data storage, processing, and communication across systems.</li>
-              <li>Design and interact with databases — schema design, queries, and optimization using MySQL.</li>
-              <li>Write server-side logic that processes front-end requests and returns results in the proper format (JSON or XML).</li>
+              <li data-i18n="exp4.b1">Develop web applications and websites using HTML, PHP, JavaScript, jQuery, and CSS.</li>
+              <li data-i18n="exp4.b2">Enable websites and apps to fetch, display, and update news articles dynamically from an external API or database.</li>
+              <li data-i18n="exp4.b3">Use JSON integration in the back-end for efficient data storage, processing, and communication across systems.</li>
+              <li data-i18n="exp4.b4">Design and interact with databases — schema design, queries, and optimization using MySQL.</li>
+              <li data-i18n="exp4.b5">Write server-side logic that processes front-end requests and returns results in the proper format (JSON or XML).</li>
             </ul>
           </article>
 
           <article class="timeline-item">
-            <span class="period">Aug 2019 — Sep 2019</span>
+            <span class="period" data-i18n="exp5.period">Aug 2019 — Sep 2019</span>
             <h3>Data Management</h3>
             <p class="org">PT. Pro Health-Int · Jakarta</p>
             <ul>
-              <li>Data analysis: examining, processing, and interpreting data to extract meaningful insights for decision-making.</li>
-              <li>Data management: organizing, storing, securing, and maintaining data throughout its lifecycle.</li>
-              <li>Data reporting: summarizing and presenting data in a structured format.</li>
-              <li>Risk management: identifying, analyzing, and mitigating risks using data-driven insights.</li>
+              <li data-i18n="exp5.b1">Data analysis: examining, processing, and interpreting data to extract meaningful insights for decision-making.</li>
+              <li data-i18n="exp5.b2">Data management: organizing, storing, securing, and maintaining data throughout its lifecycle.</li>
+              <li data-i18n="exp5.b3">Data reporting: summarizing and presenting data in a structured format.</li>
+              <li data-i18n="exp5.b4">Risk management: identifying, analyzing, and mitigating risks using data-driven insights.</li>
             </ul>
           </article>
 
@@ -179,14 +184,14 @@
     <!-- ================= EDUCATION ================= -->
     <section id="education" class="section">
       <div class="container">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title" data-i18n="edu.title">Education</h2>
         <div class="cards">
 
           <article class="card">
             <span class="period">Nov 2017 — Sep 2021</span>
-            <h3>Bachelor of Information Systems</h3>
+            <h3 data-i18n="edu1.degree">Bachelor of Information Systems</h3>
             <p class="org">Bina Nusantara University · Jakarta</p>
-            <p class="org">GPA 3.03 / 4.00</p>
+            <p class="org" data-i18n="edu1.gpa">GPA 3.03 / 4.00</p>
           </article>
 
         </div>
@@ -194,49 +199,49 @@
     </section>
 
     <!-- ================= PROJECTS ================= -->
-    <!-- Untuk menambah project: salin satu blok <article class="card project"> -->
+    <!-- Untuk menambah project: salin satu blok <article class="card project"> lalu tambahkan terjemahannya di js/i18n.js -->
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title" data-i18n="proj.title">Projects</h2>
         <div class="cards">
 
           <article class="card project">
             <span class="period">Pelindo Solusi Digital</span>
             <h3>Phinnisi</h3>
-            <p class="org">Implementation &amp; User Enablement</p>
-            <p>
+            <p class="org" data-i18n="proj1.sub">Implementation &amp; User Enablement</p>
+            <p data-i18n="proj1.desc">
               Supported the implementation of Phinnisi, Pelindo's ship service platform,
               to ensure smooth adoption across port branches and shipping agents.
             </p>
             <ul>
-              <li>Provided on-site implementation assistance, aligning application configuration with operational procedures at each branch.</li>
-              <li>Managed and maintained the application database, including master data setup and data quality control.</li>
-              <li>Guided and trained end users on application usage, enabling them to operate the system confidently and independently.</li>
+              <li data-i18n="proj1.b1">Provided on-site implementation assistance, aligning application configuration with operational procedures at each branch.</li>
+              <li data-i18n="proj1.b2">Managed and maintained the application database, including master data setup and data quality control.</li>
+              <li data-i18n="proj1.b3">Guided and trained end users on application usage, enabling them to operate the system confidently and independently.</li>
             </ul>
             <ul class="tags">
-              <li>System Implementation</li>
-              <li>Database Management</li>
-              <li>User Training</li>
+              <li data-i18n="tag.sysimpl">System Implementation</li>
+              <li data-i18n="tag.dbmgmt">Database Management</li>
+              <li data-i18n="tag.training">User Training</li>
             </ul>
           </article>
 
           <article class="card project">
             <span class="period">Pelindo Solusi Digital</span>
             <h3>Simpanda</h3>
-            <p class="org">Application Development</p>
-            <p>
+            <p class="org" data-i18n="proj2.sub">Application Development</p>
+            <p data-i18n="proj2.desc">
               Developed Simpanda, a centralized resource management application that gives
               ports across Indonesia a single, reliable view of their operational resources.
             </p>
             <ul>
-              <li>Built features to manage core port resources, including employees, vessel crew, vessels, and port assets.</li>
-              <li>Enabled ports throughout Indonesia to manage their resource data within one integrated platform.</li>
-              <li>Supported better resource planning and decision-making through accurate, up-to-date data.</li>
+              <li data-i18n="proj2.b1">Built features to manage core port resources, including employees, vessel crew, vessels, and port assets.</li>
+              <li data-i18n="proj2.b2">Enabled ports throughout Indonesia to manage their resource data within one integrated platform.</li>
+              <li data-i18n="proj2.b3">Supported better resource planning and decision-making through accurate, up-to-date data.</li>
             </ul>
             <ul class="tags">
-              <li>Application Development</li>
-              <li>Resource Management</li>
-              <li>Data Integration</li>
+              <li data-i18n="tag.appdev">Application Development</li>
+              <li data-i18n="tag.resmgmt">Resource Management</li>
+              <li data-i18n="tag.dataint">Data Integration</li>
             </ul>
           </article>
 
@@ -247,10 +252,10 @@
     <!-- ================= SKILLS ================= -->
     <section id="skills" class="section">
       <div class="container">
-        <h2 class="section-title">Core Competencies</h2>
+        <h2 class="section-title" data-i18n="skills.title">Core Competencies</h2>
         <div class="skills-grid">
           <div>
-            <h3>Software Skills</h3>
+            <h3 data-i18n="skills.software">Software Skills</h3>
             <ul class="tags">
               <li>Microsoft</li>
               <li>Claude AI</li>
@@ -263,22 +268,22 @@
             </ul>
           </div>
           <div>
-            <h3>Interpersonal Skills</h3>
+            <h3 data-i18n="skills.interpersonal">Interpersonal Skills</h3>
             <ul class="tags">
-              <li>Public Speaking</li>
-              <li>Time Management</li>
-              <li>Critical Thinking</li>
-              <li>Risk Analysis</li>
-              <li>Communication</li>
-              <li>Team Work</li>
-              <li>Detail Oriented</li>
+              <li data-i18n="skills.i1">Public Speaking</li>
+              <li data-i18n="skills.i2">Time Management</li>
+              <li data-i18n="skills.i3">Critical Thinking</li>
+              <li data-i18n="skills.i4">Risk Analysis</li>
+              <li data-i18n="skills.i5">Communication</li>
+              <li data-i18n="skills.i6">Team Work</li>
+              <li data-i18n="skills.i7">Detail Oriented</li>
             </ul>
           </div>
           <div>
-            <h3>Languages</h3>
+            <h3 data-i18n="skills.languages">Languages</h3>
             <ul class="tags">
-              <li>Bahasa Indonesia (Native)</li>
-              <li>English (Good)</li>
+              <li data-i18n="skills.l1">Bahasa Indonesia (Native)</li>
+              <li data-i18n="skills.l2">English (Good)</li>
             </ul>
           </div>
         </div>
@@ -288,8 +293,8 @@
     <!-- ================= CONTACT ================= -->
     <section id="contact" class="section contact">
       <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="lead center">Open to opportunities in IT Development and Business Analysis.</p>
+        <h2 class="section-title" data-i18n="contact.title">Let's Connect</h2>
+        <p class="lead center" data-i18n="contact.lead">Open to opportunities in IT Development and Business Analysis.</p>
         <div class="contact-list">
           <a href="mailto:adrianprtm1@gmail.com" class="contact-item">
             <span class="ic">✉</span> adrianprtm1@gmail.com
@@ -309,10 +314,11 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© <span id="year"></span> Adrian Randy Pratama. All rights reserved.</p>
+      <p>© <span id="year"></span> Adrian Randy Pratama. <span data-i18n="footer.rights">All rights reserved.</span></p>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
