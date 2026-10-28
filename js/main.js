@@ -17,6 +17,22 @@ links.querySelectorAll("a").forEach((link) =>
   })
 );
 
+// Ganti light / dark mode, pilihan disimpan di browser
+const themeToggle = document.querySelector(".theme-toggle");
+const root = document.documentElement;
+
+const updateThemeLabel = () => {
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  themeToggle.setAttribute("aria-label", `Switch to ${next} mode`);
+};
+updateThemeLabel();
+
+themeToggle.addEventListener("click", () => {
+  root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  updateThemeLabel();
+});
+
 // Tahun otomatis di footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
