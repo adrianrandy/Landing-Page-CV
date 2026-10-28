@@ -34,29 +34,27 @@
     </div>
   </header>
 
-  <main>
-    <!-- ================= HERO ================= -->
-    <section id="home" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="eyebrow">Hello, I'm</p>
-          <h1>Adrian Randy Pratama</h1>
-          <h2 class="role">IT Developer &amp; System Implementation</h2>
-          <p class="lead">
-            Results-driven IT professional specializing in data analysis to generate
-            actionable insights, with 3+ years of experience in the port industry.
-          </p>
-          <div class="hero-actions">
-            <!-- Jika file CV diganti, sesuaikan nama file di href -->
-            <a href="assets/Adrian_Randy_CV_rev.pdf" class="btn" download="Adrian_Randy_Pratama_CV.pdf">Download CV</a>
-            <a href="#contact" class="btn btn-outline">Get in Touch</a>
-          </div>
-        </div>
-        <div class="hero-photo">
-          <img src="assets/profile.jpg" alt="Photo of Adrian Randy Pratama" width="320" height="320" />
-        </div>
+  <!-- Layout 2 kolom: profil di kanan (tetap saat scroll), isi CV di kiri -->
+  <main class="container layout">
+    <!-- ================= PROFIL (SIDEBAR KANAN) ================= -->
+    <aside id="home" class="profile">
+      <img src="assets/profile.jpg" alt="Photo of Adrian Randy Pratama" width="320" height="320" />
+      <p class="eyebrow">Hello, I'm</p>
+      <h1>Adrian Randy Pratama</h1>
+      <h2 class="role">IT Developer &amp; System Implementation</h2>
+      <p class="lead">
+        Results-driven IT professional specializing in data analysis to generate
+        actionable insights, with 3+ years of experience in the port industry.
+      </p>
+      <div class="hero-actions">
+        <!-- Jika file CV diganti, sesuaikan nama file di href -->
+        <a href="assets/Adrian_Randy_CV_rev.pdf" class="btn" download="Adrian_Randy_Pratama_CV.pdf">Download CV</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
-    </section>
+    </aside>
+
+    <!-- ================= ISI CV (KOLOM KIRI) ================= -->
+    <div class="content">
 
     <!-- ================= ABOUT ================= -->
     <section id="about" class="section">
@@ -84,7 +82,7 @@
 
     <!-- ================= EXPERIENCE ================= -->
     <!-- Untuk menambah pengalaman: salin satu blok <article class="timeline-item"> -->
-    <section id="experience" class="section section-alt">
+    <section id="experience" class="section">
       <div class="container">
         <h2 class="section-title">Experience</h2>
         <div class="timeline">
@@ -177,7 +175,7 @@
 
     <!-- ================= PROJECTS ================= -->
     <!-- Untuk menambah project: salin satu blok <article class="card project"> -->
-    <section id="projects" class="section section-alt">
+    <section id="projects" class="section">
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <div class="cards">
@@ -268,7 +266,7 @@
     </section>
 
     <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section section-alt contact">
+    <section id="contact" class="section contact">
       <div class="container">
         <h2 class="section-title">Let's Connect</h2>
         <p class="lead center">Open to opportunities in IT Development and Business Analysis.</p>
@@ -279,13 +277,14 @@
           <a href="https://wa.me/6287788553969" target="_blank" rel="noopener" class="contact-item">
             <span class="ic">☏</span> +62 877-8855-3969
           </a>
-          <a href="https://www.linkedin.com/in/adrian-randypratama/" target="_blank" rel="noopener" class="contact-item">
-            <span class="ic">in</span> adrian-randypratama
+          <a href="https://www.linkedin.com/in/adrian-randy-pratama-6767041b5/" target="_blank" rel="noopener" class="contact-item">
+            <span class="ic">in</span> adrian-randy-pratama
           </a>
         </div>
         <p class="location">📍 Srengseng, Jakarta Barat, Indonesia</p>
       </div>
     </section>
+    </div>
   </main>
 
   <footer class="footer">
